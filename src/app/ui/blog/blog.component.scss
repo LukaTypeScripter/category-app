@@ -1,0 +1,27 @@
+.blog{
+  background: #F3F2FA;
+  height: 100vh;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1300px;
+    margin: auto;
+    padding-top: 74px;
+    &-title {
+      color: #1A1A1F;
+      font-size: clamp(64px, 64px + (25 - 64) * ((100vw - 600px) / (800 - 600)), 25px);
+      font-style: normal;
+      font-weight: 700;
+      line-height: 72px;
+    }
+  }
+  &__filter {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+      &-item {
+        padding: 8px 16px;
+        border-radius: 30px;
+      }
+  }
+}

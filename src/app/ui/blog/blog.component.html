@@ -1,0 +1,17 @@
+<app-header></app-header>
+<main class="blog">
+    <header class="blog__header">
+      <h1 class="blog__header-title">ბლოგი</h1>
+      <img class="blog__header-img" src="assets/images/Blog.png" alt="*">
+    </header>
+  <section class="blog__filter" *ngIf="categories$ | async as categories">
+    <div *ngFor="let category of categories.slice(0, 4) ">
+      <div class="blog__filter-item" [ngStyle]="{'background-color': category.background_color}">
+        <span [ngStyle]="{ 'color': category.text_color}">
+          {{ category.title }}
+        </span>
+      </div>
+
+    </div>
+  </section>
+</main>
