@@ -1,6 +1,5 @@
 .blog{
   background: #F3F2FA;
-  height: 100vh;
   &__header {
     display: flex;
     justify-content: space-between;
@@ -24,4 +23,81 @@
         border-radius: 30px;
       }
   }
+  article {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    max-width: 1300px;
+    margin: auto;
+    padding-top: 64px;
+    padding-bottom: 64px;
+
+    .card {
+      max-width: 408px;
+      width: 100%;
+      border-radius: 10px;
+      &__title {
+        color: #1A1A1F;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 28px;
+      }
+      &__img {
+        width: 100%;
+        border-radius: 12px;
+      }
+      &__author {
+        margin-top:24px;
+        &-title {
+          color: #1A1A1F;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 20px;
+        }
+        &-created {
+          color: #85858D;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 16px;
+        }
+
+      }
+      &__category {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 22px;
+        &-item {
+          &-text {
+            padding: 10px 6px;
+            border-radius: 30px;
+          }
+        }
+      }
+      &__description{
+        color: #404049;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 28px;
+      }
+      &__see {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        &-item {
+          color: #5D37F3;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}
+.active {
+  border: 1px solid black;
 }
