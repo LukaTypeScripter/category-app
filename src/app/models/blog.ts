@@ -18,3 +18,13 @@ export interface Post {
   categories: Category[];
   author: Author;
 }
+export interface SpecificPost {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  publish_date: string;
+  categories: Category[];
+  author: Author;
+  email:string
+}

@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {HeaderComponent} from "../header/header.component";
 import {CategoryService} from "../../services/category.service";
-import {map, Observable} from "rxjs";
+import {map, Observable, take} from "rxjs";
 import {CommonModule} from "@angular/common";
 import {Post} from "../../models/blog";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-blog',
@@ -20,10 +20,17 @@ export class BlogComponent implements OnInit{
     categories$ = this.categoryService.category$.asObservable()
     blog$!:Observable<Post[]>
     selectedCategories: string[] = [];
-    constructor(private categoryService:CategoryService,private router:Router) {
-    }
+  constructor(
+    private categoryService: CategoryService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
   ngOnInit() {
     this.filterBlogsByCategory();
+
+    this.categoryService.blogs$.pipe(take(1)).subscribe((blogs) => {
+      this.filterBlogsByCategory();
+    });
   }
   private filterBlogsByCategory(): void {
       this.blog$ = this.categoryService.blogs$.pipe(
@@ -48,8 +55,5 @@ export class BlogComponent implements OnInit{
   }
   goToSpecificBlog(id: number): void {
     this.router.navigate(['/blog', id]);
-    this.categoryService.getByIdBlogs(id).pipe(map((res:any) => {
-        this.categoryService.specificBlog$.next(res)
-    })).subscribe()
   }
 }

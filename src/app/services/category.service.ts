@@ -11,17 +11,6 @@ export class CategoryService {
   private API = "https://api.blog.redberryinternship.ge/api"
   public category$ = new BehaviorSubject<Category[]>([])
   public blogs$ = new BehaviorSubject<Post[]>([]);
-  public specificBlog$ = new BehaviorSubject<Post>({
-    id: 0,
-    title: "",
-    description: "",
-    image: "",
-    publish_date:'',
-    categories: [],
-    author: {
-      name:""
-    }
-  })
   constructor(private http:HttpClient) {
    this.fetchCategories()
     this.fetchBlogs()
