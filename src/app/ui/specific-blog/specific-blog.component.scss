@@ -1,7 +1,10 @@
+.main {
+  background: #F3F2FA;
+}
 .specific-blog {
   padding-left: 75px;
   padding-top: 45px;
-  background: #F3F2FA;
+
   display: flex;
   gap: 240px;
   svg {
@@ -57,5 +60,16 @@
   }
   &__swiper {
     margin-top: 98px;
+    overflow: hidden;
+    &-slide {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-inline: 76px;
+      &-wrapper {
+        display: flex;
+        gap: 10px;
+      }
+    }
   }
 }

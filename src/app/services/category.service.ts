@@ -60,4 +60,18 @@ export class CategoryService {
   login(email:any) {
     return this.http.post(`${this.API}/blogs`,email)
   }
+  getSimilarBlogs(categories: Category[]): Observable<Post[]> {
+    console.log(categories);
+    return this.blogs$.pipe(
+      map(blogs => {
+        console.log(blogs.filter((blog) => blog.categories), "blogs");
+
+        return blogs.filter(blog =>
+          blog.categories.some(blogCategory =>
+            categories.some(category => category.title === blogCategory.title)
+          )
+        );
+      })
+    );
+  }
 }

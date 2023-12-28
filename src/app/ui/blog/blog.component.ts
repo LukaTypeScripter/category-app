@@ -5,13 +5,15 @@ import {map, Observable, take} from "rxjs";
 import {CommonModule} from "@angular/common";
 import {Post} from "../../models/blog";
 import {ActivatedRoute, Router} from "@angular/router";
+import {CardComponent} from "../card/card.component";
 
 @Component({
   selector: 'app-blog',
   standalone: true,
   imports: [
     HeaderComponent,
-    CommonModule
+    CommonModule,
+    CardComponent
   ],
   templateUrl: './blog.component.html',
   styleUrl: './blog.component.scss'
@@ -53,7 +55,5 @@ export class BlogComponent implements OnInit{
     }
     this.filterBlogsByCategory();
   }
-  goToSpecificBlog(id: number): void {
-    this.router.navigate(['/blog', id]);
-  }
+
 }
