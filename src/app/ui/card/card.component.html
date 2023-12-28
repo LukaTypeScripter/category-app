@@ -1,5 +1,5 @@
 <article [ngClass]="{'wrap': type === 'blog','nowrap':type === 'specific'}">
-  <div class="card" *ngFor="let blog of filteredBlog" >
+  <div class="card" [ngClass]="{'min':type === 'specific'}" *ngFor="let blog of filteredBlog" >
     <img class="card__img" src="{{blog.image}}">
     <div class="card__author">
       <p class="card__author-title">{{blog.author}}</p>

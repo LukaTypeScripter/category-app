@@ -1,10 +1,15 @@
-
+.min {
+  min-width: 408px;
+}
 .wrap {
   flex-wrap: wrap;
 }
 .nowrap {
   flex-wrap: nowrap;
   overflow-x: hidden;
+  width: 1300px;
+  position: relative;
+  left: 188px;
 }
 article {
   display: flex;
