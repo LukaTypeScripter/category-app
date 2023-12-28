@@ -48,7 +48,7 @@
         </svg>
       </div>
     </div>
-    <div [style.width.px]="600" >
+    <div [style.width.px]="600" #swiperContent>
       <app-card *ngIf="similarBlogs$ | async as filteredBlogs"  [filteredBlog]="filteredBlogs" [types]="'specific'"></app-card>
     </div>
 
