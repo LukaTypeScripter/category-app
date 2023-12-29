@@ -1,4 +1,6 @@
 <header>
   <img src="assets/images/LOGO-02%203.png" alt="*">
-  <button class="button bold">შესვლა</button>
+  <button class="button bold" (click)="loginPopUp = true">შესვლა</button>
 </header>
+
+<app-login *ngIf="loginPopUp" (closeInfo)="loginPopUp = false"></app-login>

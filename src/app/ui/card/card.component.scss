@@ -9,7 +9,16 @@
   overflow-x: hidden;
   width: 1300px;
   position: relative;
-  left: 188px;
+  left: 34px;
+}
+.specific-blog__swiper-slide {
+    display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-inline:76px;
+}
+svg {
+  cursor: pointer;
 }
 article {
   display: flex;
