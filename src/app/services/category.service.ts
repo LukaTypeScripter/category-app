@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {BehaviorSubject, map, Observable} from "rxjs";
+import {BehaviorSubject, catchError, map, Observable, tap} from "rxjs";
 import {Category} from "../models/category";
 import {Author, Post} from "../models/blog";
 
@@ -57,8 +57,19 @@ export class CategoryService {
   getCategories():Observable<Category[]> {
     return  this.http.get<Category[]>(`${this.API}/categories`)
   }
-  login(email:any) {
-    return this.http.post(`${this.API}/blogs`,email)
+  login(email: any) {
+    const headers = new HttpHeaders({
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    });
+
+    return this.http.post(`${this.API}/login`, email, { headers }).pipe(
+      tap(response => console.log('Full Response:', response)),
+      catchError(error => {
+        console.error('Error:', error);
+        throw error; // Rethrow the error to propagate it to the subscriber
+      }),
+    );
   }
   getSimilarBlogs(categories: Category[]): Observable<Post[]> {
     console.log(categories);

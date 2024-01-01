@@ -29,7 +29,6 @@ export class BlogComponent implements OnInit{
   ) {}
   ngOnInit() {
     this.filterBlogsByCategory();
-
     this.categoryService.blogs$.pipe(take(1)).subscribe((blogs) => {
       this.filterBlogsByCategory();
     });

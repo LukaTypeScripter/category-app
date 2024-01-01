@@ -4,7 +4,7 @@
     <img (click)="closeInfo.emit()" src="assets/images/close.png" class="popup__close-wrapper-img" alt="*" />
   </div>
   <h1 class="popup__title">შესვლა</h1>
-  <form class="popup__form">
+  <form class="popup__form" (ngSubmit)="onLogin()">
     <label>ელ-ფოსტა</label>
     <input [ngClass]="{'error':email.hasError('invalidRedBerryEmail') || email.hasError('required') && email.dirty  }" [formControl]="email" class="popup__form-input" type="email" placeholder="Example&#64;redberry.ge">
     <div class="popup__form__error" *ngIf="email.dirty">
@@ -16,7 +16,7 @@
       <span *ngIf="email.hasError('required')">Email is required.</span>
       <span *ngIf="email.hasError('invalidRedBerryEmail')">Email must end with &#64;redberry.ge.</span>
     </div>
-    <button class="popup__form-btn" (submit)="onLogin($event)">შესვლა</button>
+    <button class="popup__form-btn">შესვლა</button>
   </form>
 </div>
 
